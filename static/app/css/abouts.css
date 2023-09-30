@@ -1,0 +1,8 @@
+.img-about {
+    border-radius: 1rem;
+}
+.abouts-box {
+    border-radius: 2rem;
+    background-color: var(--background-color);
+    color: #113946;
+}

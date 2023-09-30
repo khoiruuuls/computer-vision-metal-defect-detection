@@ -1,0 +1,20 @@
+/* navbar */
+
+.navbar-orbit {
+    width: 50vw;
+    border-radius: 1rem;
+    background-color: var(--background-color);
+    box-shadow: 12px 12px 24px #9d9d9d, -12px -12px 24px #ffffff;
+}
+
+.nav-item {
+    padding: 0.7rem 3.5rem;
+    color: var(--primary-color);
+}
+
+.nav-item.active,
+.nav-item:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 1rem;
+}

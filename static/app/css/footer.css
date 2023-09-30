@@ -1,0 +1,13 @@
+footer {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-radius: 1rem;
+}
+
+a {
+    color: var(--background-color);
+}
+
+.resource-box {
+    border-left: 1px solid var(--background-color);
+}

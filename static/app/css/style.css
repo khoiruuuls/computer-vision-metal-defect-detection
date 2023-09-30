@@ -1,0 +1,51 @@
+:root {
+    /* fonts */
+    --font-default: "Apercu", sans-serif;
+    --font-primary: "Apercu", sans-serif;
+    --font-secondary: "Apercu", sans-serif;
+
+    /* colors */
+    --primary-color: #113946;
+    --secondary-color: white;
+    --background-color: white;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: var(--font-default);
+    color: var(--primary-color);
+}
+
+h1 {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+}
+
+li {
+    list-style: none;
+}
+
+video {
+    border-radius: 1.5rem;
+    height: inherit;
+}
+
+.header-page {
+    padding-top: 15vh;
+}
+
+/* test */
+.hello {
+    border: 1px solid black;
+    border-radius: 1rem;
+}

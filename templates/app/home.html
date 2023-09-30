@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- extends app -->
+{% extends "app/base.html" %}
+
+<!-- main content -->
+{% block main-content %}
+
+<div class="main-section">
+    <div class="d-flex align-items-center">
+        <div class="row">
+            <div class="col-6 d-flex align-items-center">
+                <div class="main-box">
+                    <h1>Metal Detection</h1>
+                    <p class="pt-5">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas non atque
+                        deserunt possimus vel facere quae, doloribus nihil ipsam accusamus tempore
+                        iusto impedit natus neque fugit suscipit dolores corrupti. Nisi?
+                    </p>
+                    <button class="mt-4 start-camera-button">Start Camera</button>
+                    <button class="mt-4 stop-camera-button" style="display: none">
+                        Stop Camera
+                    </button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="camera-box d-flex justify-content-center align-items-center">
+                    <div class="img-box">Upload image kamu disini</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let videoStream;
+    const imgBox = document.querySelector(".img-box");
+
+    function startCamera() {
+        const cameraBox = document.querySelector(".camera-box");
+        const startCameraButton = document.querySelector(".start-camera-button");
+        const stopCameraButton = document.querySelector(".stop-camera-button");
+
+        imgBox.style.display = "none";
+
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices
+                .getUserMedia({ video: true })
+                .then(function (stream) {
+                    const video = document.createElement("video");
+                    video.srcObject = stream;
+                    video.autoplay = true;
+
+                    video.style.objectFit = "cover";
+
+                    video.width = cameraBox.clientWidth;
+                    video.height = cameraBox.clientHeight;
+
+                    videoStream = stream;
+
+                    cameraBox.appendChild(video);
+
+                    startCameraButton.style.display = "none";
+                    stopCameraButton.style.display = "inline-block";
+
+                    // Hide the image box content when starting the camera
+                    imgBox.style.display = "none";
+                })
+                .catch(function (error) {
+                    console.error("Error accessing camera:", error);
+                });
+        } else {
+            console.error("getUserMedia not supported in this browser.");
+        }
+    }
+
+    function stopCamera() {
+        if (videoStream) {
+            const tracks = videoStream.getTracks();
+            tracks.forEach((track) => {
+                track.stop();
+            });
+
+            const cameraBox = document.querySelector(".camera-box");
+            cameraBox.innerHTML = "";
+
+            const startCameraButton = document.querySelector(".start-camera-button");
+            const stopCameraButton = document.querySelector(".stop-camera-button");
+            startCameraButton.style.display = "inline-block";
+            stopCameraButton.style.display = "none";
+
+            // Show the image box content when stopping the camera
+            imgBox.style.display = "block";
+        }
+    }
+
+    const startCameraButton = document.querySelector(".start-camera-button");
+    startCameraButton.addEventListener("click", startCamera);
+
+    const stopCameraButton = document.querySelector(".stop-camera-button");
+    stopCameraButton.addEventListener("click", stopCamera);
+</script>
+
+{% endblock main-content %}

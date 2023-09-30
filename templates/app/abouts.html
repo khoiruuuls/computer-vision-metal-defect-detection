@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- extends app -->
+{% extends "app/base.html" %} {% load static %}
+
+<!-- title -->
+{% block title %}<title>{{ title }}</title>{% endblock title %}
+
+<!-- main content -->
+{% block main-content %}
+<div class="row py-5 abouts-box">
+    <div class="col-6">
+        <h1 class="m-0 heading-1">Metal Detection</h1>
+        <h1>Defect v. 01</h1>
+        <p class="mt-5">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora illum id velit. Alias
+            saepe dolor, corporis in, eveniet vel dolorem dicta aperiam beatae praesentium
+            accusantium, rerum quidem voluptas pariatur illum? Lorem, ipsum dolor sit amet
+            consectetur adipisicing elit. Tempora illum id velit. Alias saepe dolor, corporis in,
+            eveniet vel dolorem dicta aperiam beatae praesentium accusantium, rerum quidem voluptas
+            pariatur illum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora illum
+            id velit. Alias saepe dolor, corporis in, eveniet vel dolorem dicta aperiam beatae
+            praesentium accusantium, rerum quidem voluptas pariatur illum?
+        </p>
+    </div>
+    <div class="col-6">
+        <img src="{% static 'app/image/(1).jpg'%}" class="img-fluid img-about" alt="" />
+    </div>
+</div>
+
+<div class="d-flex flex-column align-items-center mt-5">
+    <h1>Thanks to Orbit Academy</h1>
+    <p class="mt-4 col-8">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem deserunt ipsum unde
+        eligendi illo praesentium cupiditate porro eaque! Quisquam at aliquid maiores eveniet vitae
+        magnam autem rerum laboriosam aspernatur a?
+    </p>
+    <button class="mt-5">Hello world</button>
+</div>
+{% endblock main-content %}

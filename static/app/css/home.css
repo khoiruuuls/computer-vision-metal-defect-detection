@@ -1,0 +1,18 @@
+.main-section {
+    height: 80vh;
+    display: flex;
+}
+
+.main-box {
+    padding: 3rem 2.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.camera-box {
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    height: 70vh;
+}
